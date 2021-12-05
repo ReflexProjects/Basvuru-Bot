@@ -1,5 +1,5 @@
 echo off
-title Jail
+title basvur bot
 color c
 cls
 :a
