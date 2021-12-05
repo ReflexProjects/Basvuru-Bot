@@ -1,3 +1,2 @@
-# Get Started!
-
-Add files and start typing 🎉
+# bavur-bot
+Gweep Creative Başvuru Sistemi botu
