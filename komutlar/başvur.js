@@ -1,4 +1,4 @@
-﻿const Discord = require("discord.js");
+const Discord = require("discord.js");
 const disbut = require("discord-buttons");
 const db = require('quick.db');
 const ayar = require('../ayarlar.json')
