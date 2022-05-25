@@ -4,10 +4,11 @@ const db = require('quick.db');
 const ayar = require('../ayarlar.json')
 exports.run = async (client, message, args) => { 
    const embed = new Discord.MessageEmbed()
-   .setTitle("Gweep yardım menüsü")
+   .setTitle("Başvuru yardım menüsü")
    .addField("Yetkili Başvurusunda bulun",`\`${ayar.prefix}başvur\``)
   .addField("Başvuru sistemini aç/kapat",`\`${ayar.prefix}başvur-durum aç/kapat\``)
   .addField("Başvuramıyacak kişileri engelle",`\`${ayar.prefix}başvur-ban @kişi\``)
+  .addField("Botu kapat",`\`${ayar.prefix}kapat\``)
    .setThumbnail(client.user.avatarURL({dynamic:true}))
    .setFooter(`${message.author.tag} tarafından istendi`,message.author.avatarURL({dynamic:true,size:1024}));
   message.channel.send(embed);

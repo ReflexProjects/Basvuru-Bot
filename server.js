@@ -48,8 +48,8 @@ client.on('clickButton', async (button) => {
     .setDisabled();
 
     const onaymsj = new Discord.MessageEmbed()
-    .setAuthor('RabeL #Club', button.message.guild.iconURL({dynamic: true, type: 'gif', size: 1024}))
-    .setDescription(`Başvurunuz Onaylandı ve Yetkili Rolleriniz verildi, Tebrikler :)`)
+    .setAuthor('Reflex Başvuru Sistemi', button.message.guild.iconURL({dynamic: true, type: 'gif', size: 1024}))
+    .setDescription(`Başvurunuz onaylanmıştır. Moderatör rolünüz hesabınıza eklendi.`)
     .setColor('GREEN');
 
 
@@ -64,7 +64,7 @@ client.on('clickButton', async (button) => {
     await button.message.edit(`<@${basvuruGonderenID}> adlı kişinin, Başvurusu \`${button.clicker.user.tag}\` isimli yetkili tarafından Kabul edildi`, onybuton)
     await client.channels.cache.get(ayarlar.onayred).send(`<@${basvuruGonderenID}>,`, onaymsj)
     await client.guilds.cache.get(ayarlar.sunucuid).members.cache.get(basvuruGonderenID).roles.add(ayarlar.yetkilirolid)
-	isimdes.send('Hey Selam! Ben RabeL :wave: \nYaptığın yetkili başvurusu onaylandı öncelikle tebrik ederim artık yetkili ekibimizdensin. :partying_face: \nAncak bazı görevlerin olucak alta bunları anlatımcam iyi dinle olur mu :slight_smile: \n\n\n **1 -** <#874742022903308338> Kanalında Aktif Bir Şekilde Çalışmak <#874742017333264595> Bir Kez Daha Okumanı Tavsiye Ederim.\nAbone Rol Verme Komutu = !a <@kullanıcı>\nEğer Yanlışıkla Verirsen !a-al <@kullanıcı>\n\n**2 -** <#874742026762080306> Bildiğin Hatalar Varsa Yardım Edebilirsin.\n\n**3 -** <#755298820182638692> Kanalını Oku Kurala Bile Uymadığın Zaman sende üyeler gibi ceza yiyebilirsin.\n\n**4 -** <#874743904799449108> Kanalınıda Okumayı Tavsiye Ederiz Aynı Şekilde Uymassan Yetkin Gidebilir vb.\n\n**5 **- <#874749694906093578> Her Etiket Geldiğinde Bakman Senin İçin İyi Olabilir Arada Toplantılar Olabilir Eğer Zorunlu olan Toplantılara Gelmezsen Destek Ekibinden Atılırsın.\n\n\n **Evet ama hep böyle sıkı yönetim mi var hep çalışmak mı var?**\nTabikide hayır. Arasıra yetkili ekibimiz arasında oynadığımız eğlenceli vakitlerde oluyor, birlikte oyunlar oynar şakalaşırız. Hatta çoğu yetkililerimiz  videolarda bile çıktı :) \n\n **Gelelim Ektiğimizi Biçmeye**\nAktif ve Düzenli Çalışmanın ardından tabikide ödüller var eğer kendini gösterirsen sırasıyla yetkin yükselicek ve daha üst konumlarda görev alıcaksın. \n O zaman Şimdiden kolay gelsin :) RabeL Yetkili Ekibine Hoş Geldin :heart:')
+	isimdes.send('Selam! :wave: \nYaptığın yetkili başvurusu onaylandı öncelikle tebrik ederim artık yetkili ekibimizdensin. :partying_face: \nYanlız sen bir yetkili de olsan yine de kurallara uyman gerekiyor. Her neyse, hoşgeldin!')
   }
   if(button.id === 'red'){
     button.reply.defer()
@@ -101,7 +101,7 @@ client.on('clickButton', async (button) => {
     .setDisabled();
 
     const redmsg = new Discord.MessageEmbed()
-    .setAuthor('RabeL #Club', button.message.guild.iconURL({dynamic: true, type: 'gif', size: 1024}))
+    .setAuthor('Reflex Başvuru Sistemi', button.message.guild.iconURL({dynamic: true, type: 'gif', size: 1024}))
     .setDescription(`<@${basvuruGonderenID}> Başvurunuz, \`${collected.map(m => m.content).slice(0,1)}\` nedeniyle ${button.clicker.user} tarafından Reddedildi`)
     .setColor('RED');
 

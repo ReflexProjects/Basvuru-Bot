@@ -5,10 +5,10 @@ const ayar = require('../ayarlar.json')
 exports.run = async (client, message, args) => { 
     message.delete()
 	const basvurdata = await db.get(`basvurbilgi`);
-	if(basvurdata) return message.reply(`Başvurular geçici olarak durdurulmuştur.`);
+	if(basvurdata) return message.reply(`Başvurular durdurulmuştur veya bir sorun sebebiyle başvuru açamıyorsunuz.`);
 	
 	const bandata = await db.get(`ban.${message.author.id}`)
-	if(bandata) return message.reply("Başvurulardan banlısın");
+	if(bandata) return message.reply("Başvuru açılamıyor. Sistemden engellisiniz.");
 		
   let category = message.guild.channels.cache.get(ayar.basvurkategori);
             
@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
     '**Başka Sunucuda Yetkili Oldunuz Mu?** evet/hayır',
     '**Discord Platformunda Kaç Senedir Bulunuyorsunuz?** yıl',
     '**Üyelere hangi konuda destek vermeyi planlıyorunuz?** discord-destek / kod-destek',
-    '**Neden RabeL?** <cevabınız>'
+    '**Neden Bu Sunucu?** <cevabınız>'
   ]
   let sayac = 0
   
@@ -77,10 +77,10 @@ exports.run = async (client, message, args) => {
       `**Daha önceden Bilgisi var m?: **\t\t${collected.map(m => m.content).slice(2,3)}`,
       `**Kac Yıldır DC kullanıyor: **\t\t${collected.map(m => m.content).slice(3,4)}`,
 	  `**Üyelere hangi konuda destek vermeyi planlıyor: **\t\t${collected.map(m => m.content).slice(4,5)}`,
-      `**Neden RabeL: **\t\t${collected.map(m => m.content).slice(5,6)}`
+      `**Neden Bu Sunucu: **\t\t${collected.map(m => m.content).slice(5,6)}`
     ])
     .setTimestamp()
-    .setFooter('Developed by Gweep Creative', message.guild.iconURL());
+    .setFooter('Reflex Başvuru Sistemi', message.guild.iconURL());
     client.channels.cache.get(ayar.yetkililog).send({
 		buttons: [onybuton, redbuton],
 	    embed: log}).then(async m => {
